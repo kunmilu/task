@@ -1,9 +1,22 @@
 package task;
 
 public class Person {
-	enum Gender {MAN,WOMAN}
+	enum Gender {
+		MAN("man"), WOMAN("woman");
+
+		private final String value;
+
+		private Gender(String value) {
+			this.value = value;
+		}
+
+		public String getValue() {
+			return this.value;
+		}
+	}
+
 	private Gender gender;
-	
+
 	public Person(Gender gender) {
 		this.gender = gender;
 	}
@@ -13,19 +26,9 @@ public class Person {
 		Person woman = new Person(Gender.WOMAN);
 		man.speak();
 		woman.speak();
-		
 	}
-	
+
 	public void speak() {
-		switch(gender) {
-			case MAN:
-				System.out.println("I'm a man");
-				break;
-			case WOMAN:
-				System.out.println("I'm a woman");
-				break;
-		}
-
+		System.out.println("I'm a " + this.gender.getValue());
 	}
-
 }
