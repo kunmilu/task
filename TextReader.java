@@ -22,7 +22,7 @@ public class TextReader {
 	private void execute() {
 		List<Integer> valueList = new ObjectList<>();
 
-		try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				valueList.add(Integer.parseInt(line)); // ラッパークラスからプリミティブ型へ変換
